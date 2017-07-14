@@ -1,0 +1,5 @@
+import numpy as np
+from PIL import Image
+
+img = Image.open('D:\\filelist\w1.jpg').convert('CMYK')#convert into gray scale or CMYK scale
+img.show()
