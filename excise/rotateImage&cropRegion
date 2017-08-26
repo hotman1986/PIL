@@ -14,3 +14,11 @@ out = region.rotate(45)
 
 out.show()
 """
+
+"""
+from PIL import Image
+img = Image.open('D://bob.jpg')
+out = img.resize((128,128))
+
+out.show()
+"""
