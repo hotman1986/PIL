@@ -1,0 +1,48 @@
+from PIL import Image
+from pylab import*
+
+#read image to array
+im = array(Image.open('D://thesis/haze/1.jpg'))
+imshow(im)
+
+#some points
+x = [100,100,400,400,600]#绘制对应横坐标
+y = [200,500,200,500,300]#绘制对应纵坐标
+
+#用红色的星状标记点
+#plot(x,y,'r*')
+#plot(x,y,'go--')
+#plot(x,y,'ks:')
+plot(x,y,'m-')
+
+#绘制连接前五个点的线
+plot(x[:2],y[:2])
+
+#添加标题，显示绘制的图像
+title('Plotting: "haze.jpg"')
+#axis('off')#不显示坐标轴
+show()
+
+"""
+plot(x,y,'go-') 带圆圈标记的绿线
+plot(x,y,'ks:')带有正方形标记的黑色虚线
+b=blue
+g=green
+r=red
+c=cyan
+m=magenta
+y=yellow
+k=black
+w=white
+'-'虚线
+'--'虚线
+':'点线
+
+'.'点
+'o'圆圈
+'s'正方形
+'*'星号
+'+'加号
+'x'叉号
+
+"""
