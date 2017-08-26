@@ -1,0 +1,7 @@
+from PIL import Image
+img = Image.open('D://bob.jpg')
+box = (100,100,200,200)
+region = img.crop(box)
+region = region.transpose(Image.ROTATE_180)#旋转图像，但是不能超过图像的像素宽度
+img.paste(region,box)
+img.show()
