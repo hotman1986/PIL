@@ -1,0 +1,5 @@
+from PIL import Image
+img = Image.open('D://bob.jpg')
+box = (100,100,500,500)
+region = img.crop(box)#裁剪
+region.show()
