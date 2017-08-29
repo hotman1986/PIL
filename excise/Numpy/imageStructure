@@ -1,0 +1,17 @@
+
+
+
+from PIL import Image
+
+from pylab import*
+#im = array(Image.open('D://thesis/haze/1.jpg'))
+#数据结构
+print(im.shape,im.dtype)
+
+#第一个数据输出行列，颜色通道。 第二个表示元素数据类型，第二个转化成浮点类型，但是灰度图没有颜色信息，所以只有两个值
+im = array(Image.open('D://thesis/haze/1.jpg').convert('L'),'f')
+print(im.shape,im.dtype)
+
+value=im[13,23] #ijk分别代表行列颜色通道k的像素值
+print(value)
+
