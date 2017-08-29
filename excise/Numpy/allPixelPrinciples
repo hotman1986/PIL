@@ -1,0 +1,21 @@
+from PIL import Image
+from pylab import*
+
+im = array(Image.open('D://thesis/haze/1.jpg'))
+#镜像化像素
+for i in range(600):
+    for j in range(600):
+
+        im[i,j]=im[j,i]
+imshow(im)
+show()
+
+
+#im[i,:]=im[j,:] 将第j行的值给第i行
+#im[:,i]=100   将第i列的值设置为100
+#im[:100,:50].sum() 计算前100行，前50列所有数值的和。
+#im[50:100,50:100] 50-100行，50-100列，不包括100
+#im[:,-1] 最后一列
+#im[-2,:]or im[-2] 倒数第二行，如果仅使用一个下标，那么就是行下标
+
+
