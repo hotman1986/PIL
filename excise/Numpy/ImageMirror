@@ -21,5 +21,11 @@ show()
 imshow(im3)
 show()
 """
+print(int(im.min()),int(im.max()))
 imshow(im4)
+show()
+
+#PIL操作的包函数
+pil_im = Image.fromarray(im0)
+imshow(pil_im)
 show()
