@@ -1,0 +1,9 @@
+from PIL import Image
+from pylab import*
+im = array(Image.open('D://thesis/haze/1.jpg').convert('L'))
+imshow(im)
+print ('Please click 3 points')
+#获取点的信息并把它放在数组里
+x = ginput(3)
+print('you clicked:',x)
+show()
