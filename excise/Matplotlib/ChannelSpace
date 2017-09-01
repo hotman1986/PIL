@@ -1,0 +1,18 @@
+from PIL import Image
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
+
+img = mpimg.imread('D://thesis/haze/1.jpg')
+lum_img = img[:,:,0]
+#plt.imshow(lum_img,cmap='hot')
+#plt.imshow(lum_img)
+imgplot = plt.imshow(lum_img)
+imgplot.set_cmap('Accent')#https://matplotlib.org/examples/color/colormaps_reference.html
+
+
+#imgplot = plt.imshow(img)
+plt.show()
+
+
+#print(img)
