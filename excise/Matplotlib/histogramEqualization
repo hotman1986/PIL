@@ -1,0 +1,28 @@
+#https://gist.github.com/bistaumanga/6309599
+from PIL import Image
+import numpy as np
+import matplotlib.pyplot as plt
+
+def histeq(im,nbr_bins=256):
+
+   #get image histogram
+   imhist,bins = np.histogram(im.flatten(),nbr_bins,normed=True)
+   cdf = imhist.cumsum() #cumulative distribution function
+   
+   cdf = 255 * cdf / cdf[-1] #normalize
+   
+
+   #use linear interpolation of cdf to find new pixel values
+   im2 = np.interp(im.flatten(),bins[:-1],cdf)#np.interp(x,xp,yp) 点，x坐标，y坐标，插值
+
+   return im2.reshape(im.shape), cdf
+
+#im = array(Image.open('AquaTermi_lowcontrast.jpg').convert('L'))
+im = np.array(Image.open('D://thesis/haze/1.jpg'))
+#Image.open('plant4.jpg').convert('L').save('inverted.jpg')
+
+im2,cdf = histeq(im)
+
+
+plt.imshow(im2)
+plt.show()
