@@ -24,7 +24,7 @@ im = np.array(Image.open('D://thesis/haze/1.jpg'))
 #Image.open('plant4.jpg').convert('L').save('inverted.jpg')
 
 im2,cdf = histeq(im)
-plt.hist(im.flatten(),bins=256,normed=False)
+plt.hist(im2.flatten(),bins=256,normed=False)
 
 
 
