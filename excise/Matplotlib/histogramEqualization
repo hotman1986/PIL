@@ -1,3 +1,4 @@
+
 #https://gist.github.com/bistaumanga/6309599
 from PIL import Image
 import numpy as np
@@ -6,10 +7,11 @@ import matplotlib.pyplot as plt
 def histeq(im,nbr_bins=256):
 
    #get image histogram
-   imhist,bins = np.histogram(im.flatten(),nbr_bins,normed=True)
+   imhist,bins = np.histogram(im.flatten(),nbr_bins,normed=True)#imhist是间隔对应的频数，bins是间隔
    cdf = imhist.cumsum() #cumulative distribution function
-   
+   print(imhist)
    cdf = 255 * cdf / cdf[-1] #normalize
+   
    
 
    #use linear interpolation of cdf to find new pixel values
@@ -22,7 +24,8 @@ im = np.array(Image.open('D://thesis/haze/1.jpg'))
 #Image.open('plant4.jpg').convert('L').save('inverted.jpg')
 
 im2,cdf = histeq(im)
+plt.hist(im.flatten(),bins=256,normed=False)
 
 
-plt.imshow(im2)
+
 plt.show()
