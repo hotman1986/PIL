@@ -1,0 +1,59 @@
+from PIL import Image
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.font_manager import FontProperties#添加中文的支持
+import os,glob
+
+
+def imresize(im,sz):
+    pil_im = Image.fromarray(uint8(im))
+    return array(pil_im.resize(sz))
+
+def compute_average(path,imlist):
+    Imagepath = path+'/'+imlist[0]
+    img = Image.open(Imagepath).convert('L')
+    img=img.resize((1280,1280),resample=Image.NEAREST)
+
+    averageim = np.array(img)
+    #plt.imshow(img)调试
+    #plt.show()调试
+    
+    for imname in imlist[1:]:
+        img1 = Image.open(path+'/'+imname).convert('L')
+        img1 = img1.resize((1280,1280),resample=Image.NEAREST)
+        #plt.imshow(img1)调试
+        #plt.show()调试
+        averageim += np.array(img1)
+
+        
+    averageim = averageim/len(imlist)
+    return np.array(averageim,'uint8')
+
+
+def get_imlist(path):#获得该文件夹下的图像文件名，包括文件名后缀
+    filelist = os.listdir(path)
+    return filelist
+
+filelist = get_imlist('D:\\filelist')
+
+avg = compute_average('D:\\filelist',filelist)
+
+
+path="D:\\filelist/"
+
+for impath in filelist:
+    im1 = np.array(Image.open(path+impath))
+    plt.subplot(2,2,filelist.index(impath)+1)
+    plt.imshow(im1)
+    imNum=str(filelist.index(impath)+1)
+    plt.title(u'original image'+imNum)
+    plt.axis('off')
+plt.subplot(2,2,4)
+plt.imshow(avg)
+plt.title(u'after processing')
+plt.axis('off')
+plt.show()
+
+
+
+    
