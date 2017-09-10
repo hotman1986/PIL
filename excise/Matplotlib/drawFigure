@@ -1,0 +1,14 @@
+from PIL import Image
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.font_manager import FontProperties#添加中文的支持
+import os,glob
+
+#subplot(m,n,p),m为行，n列，p是左到右，上到下的第几个位置
+
+plt.figure(1)
+plt.subplot(4,2,1)
+plt.plot([1,2,3])
+plt.subplot(4,2,3)
+plt.plot([4,5,6])
+plt.show()
