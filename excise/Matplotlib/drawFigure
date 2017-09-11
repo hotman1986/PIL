@@ -3,12 +3,24 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.font_manager import FontProperties#添加中文的支持
 import os,glob
+import math
 
 #subplot(m,n,p),m为行，n列，p是左到右，上到下的第几个位置
+plt.figure(1) # 创建图表1
+plt.figure(2) # 创建图表2
+ax1 = plt.subplot(211) # 在图表2中创建子图1
 
-plt.figure(1)
-plt.subplot(4,2,1)
-plt.plot([1,2,3])
-plt.subplot(4,2,3)
-plt.plot([4,5,6])
+ax2 = plt.subplot(212) # 在图表2中创建子图2
+ 
+x = np.linspace(0, 4)#np.linspace(start,stop)
+for i in range(2):
+    plt.figure(1)  #❶ # 选择图表1
+    plt.plot(x, np.exp(i*x/3))
+    plt.sca(ax1)   #❷ # 选择图表2的子图1
+    plt.annotate('local max',xy=(2,1),xytext=(3,1.5),arrowprops=dict(facecolor='red',shrink=0.005),)#图上的指示
+    plt.grid(True)#画格子
+    plt.title('my figure')#添加题目
+    plt.plot(x, np.sin(i*x))
+    plt.sca(ax2)  # 选择图表2的子图2
+    plt.plot(x, np.cos(i*x))
 plt.show()
