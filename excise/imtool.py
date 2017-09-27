@@ -11,3 +11,24 @@ def histeq(im,nbr_bins=256):
     
     im2 = interp(im.flatten(),bins[:-1],cdf)
     return im2.reshape(im.shape),cdf
+import matplotlib.pyplot as plt
+import numpy as np
+from PIL import Image
+
+
+def pca(X):
+    num_data,dim = X.shape
+    mean_X = X.mean(axis=0)
+    X = X-mean_X
+    if dim>num_data:
+        M = np.dot(X,X.T)
+        e,EV = linalg.eigh(M)
+        tmp = np.dot(X.T,EV).T
+        V = tmp[::-1]
+        S = sqrt(e)[::-1]
+        for i in range(V.shape[1]):
+            V[:,i]/=S
+    else:
+        U,S,V=np.linalg.svd(X)
+        V=V[:num_data]
+    return V,S,mean_X
