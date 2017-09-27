@@ -1,0 +1,12 @@
+import matplotlib.pyplot as plt
+import numpy as np
+from PIL import Image
+from scipy.ndimage import filters
+
+im = np.array(Image.open('D://thesis/haze/1.jpg'))
+im2 = np.zeros(im.shape)
+for i in range(3):
+    im2[:,:,i]=filters.gaussian_filter(im[:,:,i],5)
+im2=np.array(im2,'uint8')
+im3=plt.imshow(im2)
+plt.show()
