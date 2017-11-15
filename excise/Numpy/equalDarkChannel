@@ -22,3 +22,11 @@ for i in range(0,im.shape[0]):
 
 im3=plt.imshow(im2)
 plt.show()
+#>>> img.item(10,10,2)
+     59
+     
+     # modifying RED value
+     >>> img.itemset((10,10,2),100)
+     >>> img.item(10,10,2)
+     100
+   #
