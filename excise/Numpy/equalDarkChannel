@@ -1,0 +1,24 @@
+import matplotlib.pyplot as plt
+import numpy as np
+from PIL import Image
+from scipy.ndimage import filters
+
+# 获取暗通道
+im = np.array(Image.open('D://thesis/haze/1.jpg'))
+im2 = np.zeros(im.shape)
+localMin = 255
+
+
+
+im2=np.array(im2,'uint8')#dark image
+for i in range(0,im.shape[0]):
+    for j in range(0,im.shape[1]):
+        localMin = 255
+        for k in range(0,3):
+            if im.item(i,j,k)<localMin:
+                localMin=im.item(i,j,k)
+                im2[i,j]=localMin
+
+
+im3=plt.imshow(im2)
+plt.show()
