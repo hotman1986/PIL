@@ -1,0 +1,48 @@
+# -*- coding: utf-8 -*-
+"""
+Spyder Editor
+
+This is a CNN linear forward example
+"""
+
+import matplotlib.pyplot as plt
+import numpy as np
+from mpl_toolkits.mplot3d import Axes3D
+
+class FC:
+    def __init__(self, in_num, out_num, lr = 0.01):
+        self._in_num = in_num
+        self._out_num = out_num
+        self.w = np.random.randn(out_num,in_num)*10
+        self.b = np.zeros(out_num)
+    
+    def _sigmoid(self, in_data):
+        return 1/(1+np.exp(-in_data))
+    
+    def forward(self,in_data):
+        return self._sigmoid(np.dot(self.w,in_data)+self.b)
+
+
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d') 
+x = np.linspace(-10,10,100)
+y = np.linspace(-10,10,100)
+X,Y = np.meshgrid(x,y)
+X_f = X.flatten()
+Y_f = Y.flatten()
+data = zip(X_f,Y_f)
+
+fc = FC (2,1)
+
+
+
+
+
+
+
+Z1 = np.array([fc.forward(d) for d in data])
+
+Z1 = Z1.reshape( (100,100))
+ax.scatter(X,Y,Z1)
+#ax.plot_surface(X,Y,Z1,rstride =1 ,cstride=1,cmap='rainbow')
+plt.show()
