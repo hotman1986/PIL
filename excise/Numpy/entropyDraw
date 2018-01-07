@@ -1,0 +1,9 @@
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(0,1,101)#numpy.linspace(start, stop, num=50, endpoint=True, retstep=False, dtype=None)
+y = -x*np.log2(x) - (1-x) * np.log2(1-x)
+
+plt.plot(x,y)
+plt.show()
