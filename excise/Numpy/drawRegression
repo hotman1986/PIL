@@ -1,0 +1,15 @@
+# -*- coding: utf-8 -*-
+"""
+Spyder Editor
+
+This is a temporary script file.
+"""
+
+import numpy as np
+import matplotlib.pyplot as plt
+import sklearn.datasets as d
+
+reg_data = d.make_regression (10,2,1,1,1.0)
+#sklearn.datasets.make_regression(n_samples=100, n_features=100, n_informative=10, n_targets=1, bias=0.0, effective_rank=None, tail_strength=0.5, noise=0.0, shuffle=True, coef=False, random_state=None)
+plt.plot(reg_data[0],reg_data[1])
+plt.show()
