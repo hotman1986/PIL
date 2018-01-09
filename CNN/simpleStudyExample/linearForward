@@ -14,13 +14,13 @@ class FC:
         self._in_num = in_num
         self._out_num = out_num
         self.w = np.random.randn(out_num,in_num)*10#3*2 matrix between 1 and 0
-        self.b = np.zeros(out_num)
+        self.b = np.zeros(out_num)#b=0
     
     def _sigmoid(self, in_data):
         return 1/(1+np.exp(-in_data))
     
     def forward(self,in_data):
-        return self._sigmoid(np.dot(self.w,in_data)+self.b)
+        return self._sigmoid(np.dot(self.w,in_data)+self.b)#w*x+b
 
 
 fig = plt.figure()
