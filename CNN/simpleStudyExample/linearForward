@@ -13,7 +13,7 @@ class FC:
     def __init__(self, in_num, out_num, lr = 0.01):
         self._in_num = in_num
         self._out_num = out_num
-        self.w = np.random.randn(out_num,in_num)*10
+        self.w = np.random.randn(out_num,in_num)*10#3*2 matrix between 1 and 0
         self.b = np.zeros(out_num)
     
     def _sigmoid(self, in_data):
