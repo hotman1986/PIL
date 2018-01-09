@@ -25,8 +25,8 @@ class FC:
 
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d') 
-x = np.linspace(-10,10,100)
-y = np.linspace(-10,10,100)
+x = np.linspace(-10,10,100)#from -10 to 10 get 100 points including -10 and 10, or from -10 to 10 take 100 cols
+y = np.linspace(-10,10,100))#from -10 to 10 get 100 points including -10 and 10
 X,Y = np.meshgrid(x,y)
 X_f = X.flatten()
 Y_f = Y.flatten()
