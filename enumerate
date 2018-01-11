@@ -1,3 +1,27 @@
 animals = ['cat', 'dog', 'monkey']
 for idx, animal in enumerate(animals):
     print '#%d: %s' % (idx + 1, animal)
+
+nums = [0, 1, 2, 3, 4]
+squares = [x ** 2 for x in nums]
+print squares#like copy a list
+
+nums = [0, 1, 2, 3, 4]
+even_squares = [x ** 2 for x in nums if x % 2 == 0]
+print even_squares
+
+d = {'person': 2, 'cat': 4, 'spider': 8}
+for animal, legs in d.items():
+    print 'A %s has %d legs' % (animal, legs)
+
+nums = [0, 1, 2, 3, 4]
+even_num_to_square = {x: x ** 2 for x in nums if x % 2 == 0}
+print even_num_to_square
+
+animals = {'cat', 'dog', 'fish'}
+for idx, animal in enumerate(animals):
+    print '#%d: %s' % (idx + 1, animal)
+# Prints "#1: fish", "#2: dog", "#3: cat"
+
+from math import sqrt
+print {int(sqrt(x)) for x in range(30)}# create dataset
