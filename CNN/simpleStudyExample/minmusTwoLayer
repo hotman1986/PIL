@@ -2,13 +2,18 @@
 """
 Spyder Editor
 
-This is a CNN linear forward example
+This is a CNN minus 2 layer forward example
 """
 
 
 import matplotlib.pyplot as plt
 import numpy as np
 from mpl_toolkits.mplot3d import Axes3D
+from datetime import datetime
+
+
+start_time = datetime.now()
+
 
 class FC:
     def __init__(self, in_num, out_num, lr = 0.01):
@@ -49,10 +54,9 @@ Z2 = Z2.reshape((100,100))
 
 
 
-
-
-
-
 #ax.scatter(X,Y,Z1)
 ax.plot_surface(X,Y,Z2,rstride =1 ,cstride=1,cmap='rainbow')
 plt.show()
+
+elapsed_time = datetime.now()-start_time
+print('Time elapsed(hh:mm:ss.ms{})'.format(elapsed_time))
