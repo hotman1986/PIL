@@ -8,6 +8,9 @@ This is a CNN linear forward example
 import matplotlib.pyplot as plt
 import numpy as np
 from mpl_toolkits.mplot3d import Axes3D
+from datetime import datetime
+start_time = datetime.now()
+
 
 class FC:
     def __init__(self, in_num, out_num, lr = 0.01):
@@ -26,7 +29,7 @@ class FC:
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d') 
 x = np.linspace(-10,10,100)#from -10 to 10 get 100 points including -10 and 10, or from -10 to 10 take 100 cols
-y = np.linspace(-10,10,100))#from -10 to 10 get 100 points including -10 and 10
+y = np.linspace(-10,10,100)#from -10 to 10 get 100 points including -10 and 10
 X,Y = np.meshgrid(x,y)
 X_f = X.flatten()# put all array to be one
 Y_f = Y.flatten()
@@ -46,3 +49,6 @@ Z1 = Z1.reshape( (100,100))
 ax.scatter(X,Y,Z1)
 #ax.plot_surface(X,Y,Z1,rstride =1 ,cstride=1,cmap='rainbow')
 plt.show()
+
+elapsed_time = datetime.now()-start_time
+print('Time elapsed(hh:mm:ss.ms{})'.format(elapsed_time))
