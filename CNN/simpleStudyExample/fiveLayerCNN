@@ -9,8 +9,11 @@ This is a CNN 5 layer forward example
 import matplotlib.pyplot as plt
 import numpy as np
 from mpl_toolkits.mplot3d import Axes3D
-from matplotlib import cm
-from matplotlib.ticker import LinearLocator, FormatStrFormatter
+from datetime import datetime
+
+
+start_time = datetime.now()
+
 
 class FC:
     def __init__(self, in_num, out_num, lr = 0.01):
@@ -55,4 +58,7 @@ Z5 = Z5.reshape((100,100))
 ax.plot_surface(X,Y,Z5,rstride =1 ,cstride=1,cmap='rainbow')
 
 plt.show()
+
+elapsed_time = datetime.now()-start_time
+print('Time elapsed(hh:mm:ss.ms{})'.format(elapsed_time))
 
