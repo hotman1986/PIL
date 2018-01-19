@@ -1,0 +1,51 @@
+#coding:utf-8
+import flickrapi
+import requests
+from bs4 import BeautifulSoup
+import os
+import traceback
+
+def download(url, filename):
+    if os.path.exists(filename):
+        print('file exists!')
+        return
+    try:
+        r = requests.get(url, stream=True, timeout=60)
+        r.raise_for_status()
+        with open(filename, 'wb') as f:
+            for chunk in r.iter_content(chunk_size=1024):
+                if chunk:  # filter out keep-alive new chunks
+                    f.write(chunk)
+                    f.flush()
+        return filename
+    except KeyboardInterrupt:
+        if os.path.exists(filename):
+            os.remove(filename)
+        raise KeyboardInterrupt
+    except Exception:
+        traceback.print_exc()
+        if os.path.exists(filename):
+            os.remove(filename)
+
+if os.path.exists('imgs') is False:
+    os.makedirs('imgs')
+#输入API的key和secret
+flickr=flickrapi.FlickrAPI('c770502c52c1ce11e447ac3c26bc5ac3','156d4a4884b98f87',cache=True)
+try:
+    #爬取text为'New York'的照片,这里可以根据自己的需要设置其它的参数
+    photos=flickr.walk(tag_mode='all',
+        tags='365',
+        min_taken_date='2008-08-20',
+        max_taken_date='2008-08-25')
+except Exception as e:
+    print('Error')
+
+start = 1
+end = 8
+
+for photo in photos:
+    id = photo.get('id')
+    url = photo.url(photo ID)
+    print(url)
+    
+    
