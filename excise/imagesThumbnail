@@ -16,13 +16,14 @@ s = []
 for infile in filelist:#遍历文件夹
     if not os.path.isdir(infile):#判断是否是文件夹，不是文件夹才打开
         img = Image.open(path+"/"+infile)#打开图片
-        outfile = os.path.splitext(infile)[0]+"1"+".jpg"#split into head and tail,0 is the head,1 is the tail
+        outfile = os.path.splitext(infile)[0]+'11111'+".jpg"#split into head and tail,0 is the head,1 is the tail
         #print(os.path.splitext(infile)[1])
         print(infile)
+        print(outfile)
         
         if infile !=outfile:
             
             img = Image.open(r'C:\catania research\gan\DCGAN-tensorflow-master\DCGAN-tensorflow-master\data\targa/'+infile)
             img.thumbnail((82,18))
-            img.save(outfile)
-            img.show()
+            img.save("C:\\catania research\\gan\\DCGAN-tensorflow-master\\DCGAN-tensorflow-master\\data\\targa\\"+outfile)
+            #img.show()
