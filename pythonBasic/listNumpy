@@ -1,0 +1,103 @@
+import numpy as np
+
+a = np.array([[1,2,3],[5,6,7],[9,10,11],[12,13,14]])
+
+
+
+print(a,a.shape)
+
+b = np.array([0,2,0,1])
+
+
+
+print(a[np.arange(4),b])#browse all range 4
+
+
+a[np.arange(4),b]+=10
+
+print(a)
+
+a = np.array([[1,2],[3,4],[5,6]])
+
+bool_idx = (a>2)
+
+print(bool_idx)
+
+print(a[bool_idx])
+
+print(a[a>1])
+
+#data type
+
+x = np.array([1,2])
+
+print(x.dtype)
+
+x = np.array([1.0,2.0])
+
+print(x.dtype)
+
+x = np.array([1,2],dtype=np.float64)
+
+print(x.dtype)
+
+print(x
+     )
+
+x = np.array([[1,2],[3,4]],dtype=np.float64)
+
+y = np.array([[5,6],[7,8]],dtype=np.float64)
+
+print(x+y)
+
+print(x-y)
+
+print(np.add(x,y))
+
+print(np.subtract(x,y))
+
+v = np.array([9,10])
+
+w = np.array([11,12])
+
+print(v.dot(w))
+
+print(np.dot(v,w))
+
+print(x.dot(v))
+
+#sum
+
+x = np.array([[1,2],[3,4]])
+
+print(np.sum(x))
+
+print(np.sum(x,axis=0))#compute colum
+
+print(np.sum(x,axis=1))#compute sum of each row
+
+print(x)
+
+print(x.T)
+
+v = np.array([1,2,3])
+
+print(v)
+
+print(v.T)
+
+#broadcasting
+
+x = np.array([[1,2,3],[4,5,6],[7,8,9]])
+
+v = np.array([1,0,1])
+
+y = np.empty_like(x)
+
+print(y)
+
+for i in range(3):
+    y[i,:] = x[i,:]+v
+
+print(y)
+
